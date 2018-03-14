@@ -1,0 +1,28 @@
+{
+    "family": "image-service",
+    "containerDefinitions": [
+        {
+            "image": "%REPOSITORY_URI%:v_%BUILD_NUMBER%",
+            "name": "image-service",
+            "cpu": 10,
+            "memory": 256,
+            "essential": true,
+            "portMappings": [
+                {
+                    "containerPort": 8080,
+                    "hostPort": 80
+                }
+            ],
+            "environment": [
+                {
+                    "name": "ACCESS_KEY",
+                    "value": "%ACCESS_KEY%"
+                },
+                {
+                    "name": "SECRET_KEY",
+                    "value": "%SECRET_KEY%"
+                }
+             ]
+        }
+    ]
+}
