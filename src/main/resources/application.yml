@@ -3,3 +3,4 @@ amazonProperties:
   accessKey: ${ACCESS_KEY}
   secretKey: ${SECRET_KEY}
   bucketName: sambokar-images-storage-new
+  cloudFront: http://d1942xb12d9640.cloudfront.net

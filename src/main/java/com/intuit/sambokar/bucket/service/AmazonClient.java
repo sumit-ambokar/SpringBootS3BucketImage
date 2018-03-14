@@ -18,11 +18,16 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.PostConstruct;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import org.apache.commons.io.FileUtils;
+
 
 @Service
 public class AmazonClient {
@@ -37,6 +42,8 @@ public class AmazonClient {
     private String accessKey;
     @Value("${amazonProperties.secretKey}")
     private String secretKey;
+    @Value("${amazonProperties.cloudFront:http://d1942xb12d9640.cloudfront.net}")
+    private String cloudFront;
 
     @PostConstruct
     private void initializeAmazon() {
@@ -57,6 +64,20 @@ public class AmazonClient {
         }
         return fileUrl;
     }
+
+    public FileInputStream getFileFromCloudFront(String fileName){
+        String fileLocation = cloudFront + "/" + fileName;
+        String toFile = "tmp.jpg";
+        try {
+            //connectionTimeout, readTimeout = 10 seconds
+            FileUtils.copyURLToFile(new URL(fileLocation), new File(toFile), 10000, 10000);
+            return new FileInputStream(new File(toFile));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
     private File convertMultiPartToFile(MultipartFile file) throws IOException {
         File convFile = new File(file.getOriginalFilename());
