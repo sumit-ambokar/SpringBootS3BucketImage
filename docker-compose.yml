@@ -1,0 +1,13 @@
+# Docker compose file for user service
+version: '2.1'
+services:
+    tds-local:
+      container_name: image-service
+      image: sambokar/s3_bucket:0.0.1-SNAPSHOT
+      ports:
+        - 9080:8080
+      volumes:
+        - $HOME/tmp:/tmp
+      environment:
+        - ACCESS_KEY=${ACCESS_KEY}
+        - SECRET_KEY=${SECRET_KEY}

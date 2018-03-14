@@ -1,0 +1,5 @@
+amazonProperties:
+  endpointUrl: https://s3.us-west-2.amazonaws.com
+  accessKey: ${ACCESS_KEY}
+  secretKey: ${SECRET_KEY}
+  bucketName: sambokar-images-storage
