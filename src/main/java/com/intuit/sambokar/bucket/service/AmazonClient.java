@@ -67,7 +67,12 @@ public class AmazonClient {
     }
 
     private String generateFileName(MultipartFile multiPart) {
-        return new Date().getTime() + "-" + multiPart.getOriginalFilename().replace(" ", "_");
+        String timeStamp = new Date().getTime()+"";
+        StringBuilder input = new StringBuilder();
+        input.append(timeStamp);
+        input.reverse();
+        timeStamp = input.toString();
+        return timeStamp + "-" + multiPart.getOriginalFilename().replace(" ", "_");
     }
 
     private void uploadFileTos3bucket(String fileName, File file) {
