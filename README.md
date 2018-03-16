@@ -35,23 +35,23 @@ This should start your application, now you are ready to try it out.
 
 ## API Reference
 
-* Upload Image
+* ### Upload Image ###
 
 POST : http://localhost:9080/storage/uploadFile 
 
 This is a Post request , you would have to use Postman 
 <img width="995" alt="screen shot 2018-03-16 at 1 39 02 pm" src="https://user-images.githubusercontent.com/25832353/37543667-8d43d630-291f-11e8-8cc9-ca341f0eff19.png">
 
-* Get Image
+* ### Get Image ###
 
 GET : http://localhost:9080/storage/getFile?fileName=1521232739525-homer.jpg 
 Header:
 Accept : image/jpeg
 
-* Get All Image Names 
+* ### Get All Image Names ###
 
 GET : http://localhost:9080/storage/getAllFileNames 
 
-* Delete Image :
+* ### Delete Image ###
 
 DELETE : http://localhost:9080/storage/deleteFile?url=https://s3.us-west-2.amazonaws.com/sambokar-images-storage/1520988298070-homer.jpg 
