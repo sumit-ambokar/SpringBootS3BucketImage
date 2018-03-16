@@ -1,15 +1,15 @@
 # ImageService Spring boot application
 A Spring boot application to upload, get and delete images from an S3 bucket
 
-## End points -
-* [Upload Image](http://localhost:9080/storage/uploadFile)
-* [Get Image](http://localhost:9080/storage/getFile?fileName=<fileName>)
-* [Get All Image Names in Bucket](http://tds.sbg.intuit.com/v4/graphql)
-* [Delete Image](http://localhost:9080/storage/deleteFile?url=<s3_url_of_image>)
+## End points
+* [Upload Image](http://localhost:9080/storage/uploadFile) POST
+* [Get Image](http://localhost:9080/storage/getFile?fileName=<fileName>) GET
+* [Get All Image Names in Bucket](http://tds.sbg.intuit.com/v4/graphql) GET
+* [Delete Image](http://localhost:9080/storage/deleteFile?url=<s3_url_of_image>) DELETE
 
 
 
-## How to run -
+## How to run
 The easiest way to run the application is using docker 
 * Prerequisite : Have Docker , JDK 1.8 and maven 3.5 installed on your machine
 * AWS account : Create an AWS account, generate access key and secret key. Set env vars on your machine 
@@ -26,3 +26,9 @@ Next , start the application by running
 ```docker-compose up -d```
 
 This should start your application, now you are ready to try it out.
+
+## API Reference
+
+* Upload image
+This is a Post request , you would have to use Postman 
+<img width="995" alt="screen shot 2018-03-16 at 1 39 02 pm" src="https://user-images.githubusercontent.com/25832353/37543667-8d43d630-291f-11e8-8cc9-ca341f0eff19.png">
