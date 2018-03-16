@@ -45,8 +45,10 @@ This is a Post request , you would have to use Postman
 * ### Get Image ###
 
 GET : http://localhost:9080/storage/getFile?fileName=1521232739525-homer.jpg 
+
 Header:
-Accept : image/jpeg
+
+```Accept : image/jpeg```
 
 * ### Get All Image Names ###
 
