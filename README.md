@@ -44,4 +44,4 @@ Accept : image/jpeg
 GET : http://localhost:9080/storage/getAllFileNames 
 
 * Delete Image :
-DELETE : http://localhost:8080/storage/deleteFile?url=https://s3.us-west-2.amazonaws.com/sambokar-images-storage/1520988298070-homer.jpg 
+DELETE : http://localhost:9080/storage/deleteFile?url=https://s3.us-west-2.amazonaws.com/sambokar-images-storage/1520988298070-homer.jpg 
