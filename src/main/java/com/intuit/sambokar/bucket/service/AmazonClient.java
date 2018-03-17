@@ -12,6 +12,7 @@ import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.S3Object;
 import com.amazonaws.services.s3.model.S3ObjectInputStream;
 import com.amazonaws.services.s3.model.S3ObjectSummary;
+import com.amazonaws.util.IOUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -80,6 +81,18 @@ public class AmazonClient {
         S3Object s3object = s3client.getObject(new GetObjectRequest(bucketName, fileName));
         S3ObjectInputStream inputStream = s3object.getObjectContent();
         return inputStream;
+    }
+
+    public byte[] getFileAsByteArrayFromS3Bucket(String fileUrl) {
+        String fileName = fileUrl.substring(fileUrl.lastIndexOf("/") + 1);
+        S3Object s3object = s3client.getObject(new GetObjectRequest(bucketName, fileName));
+        S3ObjectInputStream inputStream = s3object.getObjectContent();
+        try {
+            return IOUtils.toByteArray(inputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 

@@ -31,8 +31,7 @@ public class  BucketController {
 
     @GetMapping(value = "/getFile", produces = MediaType.IMAGE_JPEG_VALUE)
     public byte[] getFile(@RequestParam String fileName) throws IOException {
-        InputStream in = this.amazonClient.getFileFromS3Bucket(fileName);
-        return IOUtils.toByteArray(in);
+        return this.amazonClient.getFileAsByteArrayFromS3Bucket(fileName);
     }
 
     @GetMapping("/getAllFileNames")

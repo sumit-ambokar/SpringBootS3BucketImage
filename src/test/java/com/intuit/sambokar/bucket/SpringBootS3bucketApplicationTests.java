@@ -12,5 +12,4 @@ public class SpringBootS3bucketApplicationTests {
 	@Test
 	public void contextLoads() {
 	}
-
 }
